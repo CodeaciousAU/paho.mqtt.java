@@ -80,6 +80,7 @@ public class MqttConnectOptions {
 	private String[] serverURIs = null;
 	private int MqttVersion = MQTT_VERSION_DEFAULT;
 	private boolean automaticReconnect = false;
+	private Properties customWebSocketHeaders = null;
 
 	/**
 	 * Constructs a new <code>MqttConnectOptions</code> object using the
@@ -625,6 +626,20 @@ public class MqttConnectOptions {
 			p.put("SSLProperties", getSSLProperties());
 		}
 		return p;
+	}
+
+	/**
+	 * Sets the Custom WebSocket Headers for the WebSocket Connection.
+	 *
+	 * @param props The custom websocket headers {@link Properties}
+	 */
+
+	public void setCustomWebSocketHeaders(Properties props) {
+		this.customWebSocketHeaders = props;
+	}
+
+	public Properties getCustomWebSocketHeaders() {
+		return customWebSocketHeaders;
 	}
 
 	public String toString() {
